@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>卡通人物</title>
+	</head>
+	<style>
+	*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.wrapper{
+  position: relative;
+  width: 500px;
+  height: 1000px;
+  
+  margin: 40px auto;
+}
+.head{
+  position: absolute;
+  width: 315px;
+  top: 10px;
+  height: 290px;
+  border: 2px solid;
+  border-radius:140px 140px 150px 150px;
+  left: 50%;
+  transform: translate(-50%);
+  background: #0CB0DA;
+  z-index: 1;
+}
+.face{
+  position: absolute;
+  top: 90px;
+  left: 32px;
+  width: 250px;
+  height: 196px;
+  border: 2px solid;
+  background: white;
+  border-radius:150px/150px;
+}
+.eye{
+  height: 87px;
+  width: 76px;
+  top:45px;
+  border: 2px solid;
+  position: absolute;
+  border-radius: 35px;
+  background: white;
+}
+.eye.eyeleft{
+  right: 50%;
+}
+.eye.eyeleft::after{
+  content: '';
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 48%;
+  position: absolute;
+  top: 50px;
+  left: 45px;
+  background:#333333;
+}
+.eye.eyeright{
+  left: 50%;
+}
+.eye.eyeright::after{
+  content: '';
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 48%;
+  position: absolute;
+  top: 50px;
+  right: 45px;
+  background:#333333;
+}
+.nose{
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  background:#C93E00;
+  border-radius: 50%;
+  border:2px solid;
+  top: 40%;
+  left:50%;
+  transform: translate(-50%);
+}
+.centermouse{
+  position: absolute;
+  height: 88px;
+  width: 0;
+  border-right: 2px solid;
+  left:50%;
+  top:50%;
+}
+.beardleft{
+  position:absolute;
+  top:24px;
+  left:-100px;
+  width: 62px;
+  height:0;
+  border-bottom: 2px solid;
+}
+.beardleft::after{
+  content: '';
+  display: block;
+  width: 60px;
+  height: 0;
+  border-bottom: 2px solid;
+  position:absolute;
+  top:-20px;
+  transform: rotate(20deg)
+}
+.beardleft::before{
+  content: '';
+  display: block;
+  width: 60px;
+  height: 0;
+  border-bottom: 2px solid;
+  position:absolute;
+  top:20px;
+  transform: rotate(-20deg);
+}
+.beardright{
+  position:absolute;
+  top:24px;
+  right:-100px;
+  width: 62px;
+  height:0;
+  border-bottom: 2px solid;
+}
+.beardright::after{
+  content: '';
+  display: block;
+  width: 60px;
+  height: 0;
+  border-bottom: 2px solid;
+  position:absolute;
+  top:-20px;
+  transform: rotate(-200deg);
+}
+.beardright::before{
+  content: '';
+  display: block;
+  width: 60px;
+  height: 0;
+  border-bottom: 2px solid;
+  position:absolute;
+  top:20px;
+  transform: rotate(20deg)
+}
+.mouse{
+  position: absolute;
+  top: 158px;
+  left:50%;
+  transform: translate(-50%) rotate(-135deg);
+  width: 100px;
+  height: 100px;
+  border-right:0px solid;
+  border-top:2px solid;
+  border-left:2px solid;
+  border-top-left-radius: 95px;
+
+  
+}
+.collar{
+  position: absolute;
+  top: 278px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 225px;
+  height:25px;
+  border: 2px solid;
+  border-radius: 10px;
+  background: #A32100;
+  z-index: 5;
+}
+.bells{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 10px;
+  width: 43px;
+  height: 43px;
+  background: #F4EC29;
+  border-radius: 50%;
+  border: 2px solid;
+  overflow: hidden;
+}
+.cir{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: black;
+}
+.cir::after{
+  content: '';
+  display: block;
+  height: 15px;
+  width: 0;
+  border-right:2px solid;
+  position: absolute;
+  top: 5px; 
+  left: 5px;
+}
+.line{
+  position: absolute;
+  top: 8px;
+  height: 7px;
+  width: 100%;
+  border: 2px solid;
+  border-left:0px;
+  border-right: 0px;
+}
+.body{
+  position: relative;
+  top: 300px;
+  left:50%;
+  transform: translate(-50%);
+  height: 190px;
+  width: 220px;
+  border: 2px solid;
+  border-top: 0px;
+  background: #05AADB;
+}
+.belly{
+  position: absolute;
+  left: 50%;
+  top: -30px;
+  transform: translate(-50%);
+  width: 175px;
+  height:175px;
+  border: 2px solid;
+  border-radius: 50%;
+  background: white;
+}
+.pocket{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%);
+  width:130px;
+  height:70px; 
+  background-color:white;
+  border: 2px solid;
+  border-radius:0 0 70px 70px;
+}
+.cir1{
+  position: absolute;
+  bottom: -2px;
+  left:50%;
+  transform: translate(-50%);
+  width: 24px;
+  height: 12px;
+  background: white;
+  border: 2px solid;
+  border-bottom: 0;
+  border-radius: 12px 12px 0 0 ;
+}
+.handleft{
+  position: absolute;
+  top: 23px;
+  left: -90px;
+  width: 64px;
+  height: 64px;
+  background: white;
+  border: 2px solid;
+  border-radius: 50%;
+}
+.handright{
+  position: absolute;
+  top: 23px;
+  right: -90px;
+  width: 64px;
+  height: 64px;
+  background: white;
+  border: 2px solid;
+  border-radius: 50%;
+}
+.armleft{
+  position: absolute;
+  top: 310px;
+  left: 80px;
+  background:#05AADB;
+  transform: rotate(-25deg);
+  height: 50px;
+  width: 100px;
+  border:1px solid;
+  z-index: -1;
+}
+.armright{
+  position: absolute;
+  top: 310px;
+  right: 80px;
+  background:#05AADB;
+  transform: rotate(25deg);
+  height: 50px;
+  width: 100px;
+  border:1px solid;
+}
+.armleft1{
+  position: absolute;
+  top: 303px;
+  width: 4px;
+  height: 47px;
+  left: 139px;
+  background: #05AADB;
+}
+.armright1{
+  position: absolute;
+  top: 303px;
+  width: 4px;
+  height: 47px;
+  right: 139px;
+  background: #05AADB;
+}
+.footleft{
+  position: absolute;
+  top:480px;
+  left: 115px;
+  width: 125px;
+  height: 34px;
+  background: white;
+  border: 2px solid;
+  border-radius: 30px 15px 15px 15px;
+}
+.footright{
+  position: absolute;
+  top:480px;
+  right: 115px;
+  width: 125px;
+  height: 34px;
+  background: white;
+  border: 2px solid;
+  border-radius: 15px 30px 15px 15px;
+}
+	</style>
+	<body>
+    <div class="wrapper">
+      <div class="head">
+				<div class="face"></div>
+				<div class="eye eyeleft"></div>
+				<div class="eye eyeright"></div>
+				<div class="centermouse">
+					<div class="beardleft"></div>
+					<div class="beardright"></div>
+				</div>
+				<div class="mouse"></div>
+				<div class="nose"></div>
+				
+			</div>
+			<div class="armleft"></div>
+			<div class="armright"></div>
+			
+			<div class="body">
+				<div class="belly">
+					<div class="pocket"></div>
+				</div>
+				<div class="cir1"></div>
+				
+				<div class="handleft"></div>
+				<div class="handright"></div>
+			</div>
+			<div class="armleft1"></div>
+			<div class="armright1"></div>
+			<div class="collar">
+				<div class="bells">
+					<div class="line"></div>
+					<div class="cir"></div>
+				</div>
+			</div>
+			<div class="footleft"></div>
+			<div class="footright"></div>
+    </div>
+	</body>
+</html>
